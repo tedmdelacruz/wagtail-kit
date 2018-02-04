@@ -1,0 +1,25 @@
+version: '3'
+services:
+  db:
+    container_name: wagtail_db
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    env_file: .env
+    image: mysql
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:6033"
+  cache:
+    container_name: wagtail_cache
+    image: redis
+  server:
+    container_name: wagtail_server
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on: 
+      - db
