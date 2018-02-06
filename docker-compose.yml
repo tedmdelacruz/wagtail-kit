@@ -16,7 +16,9 @@ services:
     image: redis
   server:
     container_name: wagtail_server
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.local
     volumes:
       - .:/app
     ports:

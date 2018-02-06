@@ -95,8 +95,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'wagtail_db',
-        'DATABASE': 'wagtail_db',
-        'USER': 'root',
+        'DATABASE': os.getenv('MYSQL_DATABASE'),
+        'USER': os.getenv('MYSQL_USER'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
         'HOST': 'wagtail_db',
         'PORT': '3306'
     }
