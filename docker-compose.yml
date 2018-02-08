@@ -15,12 +15,14 @@ services:
     container_name: wagtail_cache
     image: redis
   server:
+    restart: always
     container_name: wagtail_server
     build: 
       context: .
       dockerfile: Dockerfile.local
+    env_file: .env
     volumes:
-      - .:/app
+      - ./app:/code
     ports:
       - "8000:8000"
     depends_on: 
