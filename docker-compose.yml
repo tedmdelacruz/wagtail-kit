@@ -17,9 +17,10 @@ services:
   server:
     restart: always
     container_name: wagtail_server
+    entrypoint: /code/bootstrap.local.sh
     build: 
       context: .
-      dockerfile: Dockerfile.local
+      dockerfile: Dockerfile
     env_file: .env
     volumes:
       - ./app:/code

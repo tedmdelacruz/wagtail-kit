@@ -5,7 +5,5 @@ WORKDIR /code
 ADD app /code/
 
 RUN pip install -r /code/requirements.txt
-RUN apt-get update
-
-CMD ["/code/bootstrap.sh"]
+RUN apt-get update && apt-get install -y netcat
 
