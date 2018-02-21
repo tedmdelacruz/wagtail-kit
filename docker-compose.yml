@@ -10,7 +10,7 @@ services:
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
     ports:
-      - "3306:6033"
+      - "${DB_PORT}"
   cache:
     container_name: wagtail_cache
     image: redis
