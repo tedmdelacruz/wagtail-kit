@@ -25,6 +25,6 @@ services:
     volumes:
       - ./app:/code
     ports:
-      - "8000:8000"
+      - "${SERVER_PORT}:8000"
     depends_on: 
       - db
